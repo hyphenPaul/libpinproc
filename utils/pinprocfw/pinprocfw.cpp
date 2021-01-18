@@ -2246,16 +2246,12 @@ int main( int argc, char** argv )
     char*   pzXsvfFileName;
     int     i;
     int     iErrorCode;
-    int aaa;
-    int bbb;
 
     // Set a signal handler so that we can exit gracefully on Ctrl-C:
     //signal(SIGINT, sigint);
 
     iErrorCode          = XSVF_ERRORCODE( XSVF_ERROR_NONE );
     pzXsvfFileName      = 0;
-    aaa = P_ROC_CHIP_ID;
-    bbb = P3_ROC_CHIP_ID;
 
     //printf( "XSVF Player v%s, Xilinx, Inc.\n", XSVF_VERSION );
 
@@ -2296,12 +2292,12 @@ int main( int argc, char** argv )
                     fprintf(stderr, "\nVerifying file contents and board compatibility...");
                     switch (checkPROCFile()) 
                     {
-                      case aaa:
+                      case P_ROC_CHIP_ID:
 			rewind(in);        
                         preparePROCFile();
                         processFile();
                         break;
-                      case bbb:
+                      case P3_ROC_CHIP_ID:
 			  rewind(in);        
                           preparePROCFile();
                           processP3ROCFile();
